@@ -205,10 +205,6 @@ export function Home() {
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <h1 className="text-2xl md:text-3xl font-bold text-green-600 mb-4 md:mb-8">
-          Find a Doctor
-        </h1>
-
         {/* Mobile Search Bar */}
         <div className="md:hidden mb-4">
           <div className="relative">

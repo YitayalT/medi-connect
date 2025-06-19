@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../auth/AuthProvider';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaUser, FaLock, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
+import { FaUser, FaLock, FaGoogle, FaLinkedin } from 'react-icons/fa';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -162,8 +162,8 @@ export function Login() {
                 type="button"
                 className="w-full inline-flex justify-center items-center py-2 px-2 sm:px-4 border border-gray-300 rounded-md shadow-sm bg-white text-xs sm:text-sm font-medium text-gray-500 hover:bg-gray-50"
               >
-                <FaGithub className="h-5 w-5" />
-                <span className="ml-2">GitHub</span>
+                <FaLinkedin className="h-5 w-5" />
+                <span className="ml-2">LinkedIn</span>
               </button>
             </div>
           </div>
