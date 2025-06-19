@@ -186,7 +186,7 @@ export function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <h1 className="text-xl font-semibold text-green-800">Dashboard</h1>
+              <h1 className="text-xl font-semibold text-green-800">Find Your Doctors Here</h1>
             </div>
             <div className="flex items-center space-x-4">
               <button className="p-1 rounded-full text-gray-500 hover:text-green-700 focus:outline-none">
@@ -194,7 +194,7 @@ export function Home() {
               </button>
               <button
                 onClick={logout}
-                className="flex items-center text-sm text-green-700 hover:text-green-600"
+                className="flex items-center text-bold text-sm text-red-700 hover:text-red-800"
               >
                 <FiLogOut className="mr-1" /> Sign out
               </button>
@@ -341,8 +341,8 @@ export function Home() {
 
                   <div className="flex flex-col md:flex-row md:justify-between md:items-center mt-3 space-y-2 md:space-y-0">
                     <div className="flex items-center justify-center md:justify-start">
-                      <span className="text-yellow-400 text-lg">★</span>
-                      <span className="ml-1 text-gray-700 font-medium">
+                      <span className="text-yellow-500 text-lg">★</span>
+                      <span className="ml-1 text-gray-700 font-bold">
                         {doctor.rating}
                       </span>
                       <span className="text-gray-500 text-xs md:text-sm ml-1">

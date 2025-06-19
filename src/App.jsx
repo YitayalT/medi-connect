@@ -21,6 +21,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/doctors/:id" element={<DoctorProfile />} />
+        
         </Routes>
       </AuthProvider>
     </Router>

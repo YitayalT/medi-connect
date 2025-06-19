@@ -1,121 +1,120 @@
 import { useParams, Link } from 'react-router-dom';
 import { FiArrowLeft, FiCalendar, FiMessageSquare, FiPhone, FiMapPin, FiClock, FiAward } from 'react-icons/fi';
+import { useState } from 'react';
 
 const DoctorProfile = () => {
   const { id } = useParams();
-  
-  // Sample data - in a real app, you'd fetch this from an API based on the id
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Sample doctor data
   const doctors = [
-        {
-          id: 1,
-          name: 'Dr. Sarah Johnson',
-          specialization: 'Cardiologist',
-          rating: 4.8,
-          image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 2,
-          name: 'Dr. Michael Chen',
-          specialization: 'Neurologist',
-          rating: 4.5,
-          image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 3,
-          name: 'Dr. Emily Wilson',
-          specialization: 'Pediatrician',
-          rating: 4.9,
-          image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 4,
-          name: 'Dr. Robert Garcia',
-          specialization: 'Dermatologist',
-          rating: 4.3,
-          image: 'https://images.unsplash.com/photo-1622902046580-2b47f47f5471?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 5,
-          name: 'Dr. Priya Patel',
-          specialization: 'Cardiologist',
-          rating: 4.7,
-          image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 6,
-          name: 'Dr. James Wilson',
-          specialization: 'Orthopedic Surgeon',
-          rating: 4.6,
-          image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 7,
-          name: 'Dr. Lisa Wong',
-          specialization: 'Ophthalmologist',
-          rating: 4.9,
-          image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 8,
-          name: 'Dr. David Kim',
-          specialization: 'Gastroenterologist',
-          rating: 4.4,
-          image: 'https://images.unsplash.com/photo-1622902046580-2b47f47f5471?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 9,
-          name: 'Dr. Olivia Martinez',
-          specialization: 'Endocrinologist',
-          rating: 4.7,
-          image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 10,
-          name: 'Dr. Benjamin Taylor',
-          specialization: 'Pulmonologist',
-          rating: 4.5,
-          image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 11,
-          name: 'Dr. Sophia Lee',
-          specialization: 'Rheumatologist',
-          rating: 4.8,
-          image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 12,
-          name: 'Dr. William Brown',
-          specialization: 'Urologist',
-          rating: 4.2,
-          image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 13,
-          name: 'Dr. Ava Garcia',
-          specialization: 'Psychiatrist',
-          rating: 4.9,
-          image: 'https://images.unsplash.com/photo-1622902046580-2b47f47f5471?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 14,
-          name: 'Dr. Ethan Wilson',
-          specialization: 'Oncologist',
-          rating: 4.7,
-          image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        },
-        {
-          id: 15,
-          name: 'Dr. Mia Rodriguez',
-          specialization: 'Nephrologist',
-          rating: 4.6,
-          image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-        }
-      ];
-  
-  
+    {
+      id: 1,
+      name: 'Dr. Sarah Johnson',
+      specialization: 'Cardiologist',
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 2,
+      name: 'Dr. Michael Chen',
+      specialization: 'Neurologist',
+      rating: 4.5,
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 3,
+      name: 'Dr. Emily Wilson',
+      specialization: 'Pediatrician',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 4,
+      name: 'Dr. Robert Garcia',
+      specialization: 'Dermatologist',
+      rating: 4.3,
+      image: 'https://images.unsplash.com/photo-1622902046580-2b47f47f5471?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 5,
+      name: 'Dr. Priya Patel',
+      specialization: 'Cardiologist',
+      rating: 4.7,
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 6,
+      name: 'Dr. James Wilson',
+      specialization: 'Orthopedic Surgeon',
+      rating: 4.6,
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 7,
+      name: 'Dr. Lisa Wong',
+      specialization: 'Ophthalmologist',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 8,
+      name: 'Dr. David Kim',
+      specialization: 'Gastroenterologist',
+      rating: 4.4,
+      image: 'https://images.unsplash.com/photo-1622902046580-2b47f47f5471?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 9,
+      name: 'Dr. Olivia Martinez',
+      specialization: 'Endocrinologist',
+      rating: 4.7,
+      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 10,
+      name: 'Dr. Benjamin Taylor',
+      specialization: 'Pulmonologist',
+      rating: 4.5,
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 11,
+      name: 'Dr. Sophia Lee',
+      specialization: 'Rheumatologist',
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 12,
+      name: 'Dr. William Brown',
+      specialization: 'Urologist',
+      rating: 4.2,
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 13,
+      name: 'Dr. Ava Garcia',
+      specialization: 'Psychiatrist',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1622902046580-2b47f47f5471?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 14,
+      name: 'Dr. Ethan Wilson',
+      specialization: 'Oncologist',
+      rating: 4.7,
+      image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    },
+    {
+      id: 15,
+      name: 'Dr. Mia Rodriguez',
+      specialization: 'Nephrologist',
+      rating: 4.6,
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    }
+  ];
   const doctor = doctors.find(doc => doc.id === parseInt(id));
-  
   if (!doctor) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -124,9 +123,8 @@ const DoctorProfile = () => {
     );
   }
 
-  // Sample additional profile data
   const profileData = {
-    bio: "Dr. " + doctor.name.split(' ')[1] + " is a board-certified " + doctor.specialization + 
+    bio: "Dr. " + doctor.name.split(' ')[1] + " is a board-certified " + doctor.specialization +
          " with over 10 years of experience. Committed to providing personalized care and " +
          "the highest quality treatment to all patients.",
     education: [
@@ -152,7 +150,7 @@ const DoctorProfile = () => {
   };
 
   return (
-    <div className="min-h-screen w-screen bg-gray-50"  style={{ fontFamily: " 'Times New Roman', serif" }}>
+    <div className="min-h-screen w-screen bg-gray-50" style={{ fontFamily: "'Times New Roman', serif" }}>
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center">
@@ -177,7 +175,6 @@ const DoctorProfile = () => {
             <div className="flex-grow">
               <h1 className="text-3xl font-bold text-gray-800">{doctor.name}</h1>
               <p className="text-blue-600 text-xl font-medium mb-4">{doctor.specialization}</p>
-              
               <div className="flex items-center mb-4">
                 <div className="flex items-center mr-6">
                   <span className="text-yellow-400 text-xl mr-1">★</span>
@@ -189,11 +186,12 @@ const DoctorProfile = () => {
                   <span>15 years experience</span>
                 </div>
               </div>
-              
               <p className="text-gray-700 mb-6">{profileData.bio}</p>
-              
               <div className="flex flex-wrap gap-3">
-                <button className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center">
+                <button 
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 flex items-center"
+                  onClick={() => setIsModalOpen(true)}
+                >
                   <FiCalendar className="mr-2" /> Book Appointment
                 </button>
                 <button className="px-4 py-2 bg-white border border-green-600 text-green-600 rounded-md hover:bg-green-100 flex items-center">
@@ -220,7 +218,6 @@ const DoctorProfile = () => {
                 ))}
               </ul>
             </div>
-            
             {/* Services */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">Services</h2>
@@ -236,7 +233,7 @@ const DoctorProfile = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Right Column */}
           <div className="space-y-6">
             {/* Clinic Info */}
@@ -265,7 +262,6 @@ const DoctorProfile = () => {
                 </div>
               </div>
             </div>
-            
             {/* Languages */}
             <div className="bg-white rounded-lg shadow-md p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">Languages Spoken</h2>
@@ -283,6 +279,70 @@ const DoctorProfile = () => {
           </div>
         </div>
       </main>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+            <h2 className="text-2xl font-bold text-green-600 mb-4">Book Appointment</h2>
+            
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                alert('Appointment booked successfully!');
+                setIsModalOpen(false);
+              }}
+            >
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2">Your Name</label>
+                <input 
+                  type="text" 
+                  className="py-2 pl-10 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                  required 
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2">Date</label>
+                <input 
+                  type="date" 
+                  className="py-2 pl-10 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                  required 
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2">Time</label>
+                <input 
+                  type="time" 
+                  className="py-2 pl-10 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500" 
+                  required 
+                />
+              </div>
+              <div className="flex justify-end gap-3 mt-6">
+                <button 
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-4 py-2 bg-red-700 text-white rounded hover:bg-red-800"
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit"
+                  className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                >
+                  Confirm Booking
+                </button>
+              </div>
+            </form>
+
+            {/* Close Button */}
+            <button 
+              className="absolute top-4 right-4 text-gray-500 text-2xl font-bold"
+              onClick={() => setIsModalOpen(false)}
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
