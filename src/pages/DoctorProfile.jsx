@@ -317,30 +317,30 @@ const DoctorProfile = () => {
         }}
       >
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Your Name</label>
+          <label className="block font-bold text-gray-700 mb-2">Your Name</label>
           <input 
             type="text" 
             name="name"
             placeholder="John Doe"
-            className="py-3 pl-4 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 text-base"
+            className="py-2 pl-4 block font-bold w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 text-base"
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Date</label>
+          <label className="block font-bold text-gray-700 mb-2">Date</label>
           <input 
             type="date" 
             name="date"
-            className="py-3 pl-4 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 text-base"
+            className="py-2 pl-4 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 text-base"
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Time</label>
+          <label className="block font-bold text-gray-700 mb-2">Time</label>
           <input 
             type="time" 
             name="time"
-            className="py-3 pl-4 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 text-base"
+            className="py-2 pl-4 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 text-base"
           />
         </div>
 
@@ -348,13 +348,13 @@ const DoctorProfile = () => {
           <button 
             type="button"
             onClick={() => setIsModalOpen(false)}
-            className="px-4 py-2 bg-red-700 text-white rounded hover:bg-red-800 w-full sm:w-auto"
+            className="px-4 py-1 bg-red-700 text-white rounded hover:bg-red-800 w-full sm:w-auto"
           >
             Cancel
           </button>
           <button 
             type="submit"
-            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 w-full sm:w-auto"
+            className="px-4 py-1 bg-green-600 text-white rounded hover:bg-green-700 w-full sm:w-auto"
           >
             Confirm Booking
           </button>

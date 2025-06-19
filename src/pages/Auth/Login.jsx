@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../auth/AuthProvider';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaUser, FaLock, FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaUser, FaLock, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ export function Login() {
   }
 
   return (
-    <div className="min-h-screen w-screen bg-gray-100 flex flex-col items-center justify-center py-12 sm:px-6 ">
+    <div className="min-h-screen w-screen bg-gray-100 flex flex-col items-center justify-center py-12 sm:px-6 font-semibold" style={{ fontFamily: "'Times New Roman', serif" }}>
        
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-green-600">
@@ -162,8 +162,8 @@ export function Login() {
                 type="button"
                 className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               >
-                <FaGithub className="h-5 w-5" />
-                <span className="ml-2">GitHub</span>
+                <FaLinkedinIn className="h-5 w-5" />
+                <span className="ml-2">LinkedIn</span>
               </button>
             </div>
           </div>
