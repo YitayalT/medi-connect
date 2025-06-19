@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../auth/AuthProvider';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaUser, FaLock, FaGoogle, FaGithub } from 'react-icons/fa';
+import { FaUser, FaLock, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -21,9 +21,10 @@ export function Login() {
   }
 
   return (
-    <div className="min-h-screen w-full w-screen bg-gray-100 flex flex-col items-center justify-center px-4 py-6 sm:px-6">
-      <div className="w-full sm:mx-auto sm:max-w-md">
-        <h2 className="mt-6 text-center text-2xl sm:text-3xl font-extrabold text-green-600">
+    <div className="min-h-screen w-screen bg-gray-100 flex flex-col items-center justify-center py-12 sm:px-6 ">
+       
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-green-600">
           Sign In To Your Account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
@@ -161,8 +162,8 @@ export function Login() {
                 type="button"
                 className="w-full inline-flex justify-center items-center py-2 px-2 sm:px-4 border border-gray-300 rounded-md shadow-sm bg-white text-xs sm:text-sm font-medium text-gray-500 hover:bg-gray-50"
               >
-                <FaGithub className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span className="ml-1 sm:ml-2">GitHub</span>
+                <FaGithub className="h-5 w-5" />
+                <span className="ml-2">GitHub</span>
               </button>
             </div>
           </div>
